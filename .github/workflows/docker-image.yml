@@ -48,3 +48,4 @@ jobs:
         platforms: ${{ steps.docker_image.outputs.docker_platform }}
         push: true
         tags: ${{ steps.docker_image.outputs.docker_tags }}
+        provenance: false
