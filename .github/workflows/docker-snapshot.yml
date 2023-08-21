@@ -1,6 +1,7 @@
 name: docker-latest-snapshot
 
 on:
+  workflow_dispatch:
   push:
     branches: snapshot
   schedule:
