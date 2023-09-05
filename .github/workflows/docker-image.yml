@@ -2,6 +2,11 @@ name: docker-image
 
 on:
   workflow_call:
+    inputs:
+      target_branch:
+        required: true
+        description: 'The branch to checkout and work-on'
+        type: string
     secrets:
       DOCKER_USER:
         required: true
@@ -20,6 +25,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.target_branch }}
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx

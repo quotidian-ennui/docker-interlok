@@ -11,6 +11,8 @@ jobs:
   build:
     if: ${{ github.actor != 'dependabot[bot]' }}
     uses: ./.github/workflows/docker-image.yml
+    with:
+      target_branch: ${{ github.head_ref }}
     secrets:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
