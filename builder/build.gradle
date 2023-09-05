@@ -12,7 +12,8 @@ ext {
       return mavenMetadata.versioning.latest.text()
     }
   ]
-  interlokVersion = project.findProperty('interlokVersion') ?: interlokVersioning.latestSnapshot()
+  // interlokVersion = project.findProperty('interlokVersion') ?: interlokVersioning.latestSnapshot()
+  interlokVersion = project.findProperty('interlokVersion') ?: "4.9-SNAPSHOT"
   // includeWar='true'
 }
 
