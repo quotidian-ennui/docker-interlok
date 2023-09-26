@@ -46,7 +46,7 @@ jobs:
         echo "docker_tags=${DOCKER_IMAGE}" >> $GITHUB_OUTPUT
         echo "docker_platform=${DOCKER_PLATFORM}" >> $GITHUB_OUTPUT
     - name: Build Image
-      uses: docker/build-push-action@v4
+      uses: docker/build-push-action@v5
       with:
         # no-cache: true
         builder: ${{ steps.buildx.outputs.name }}
