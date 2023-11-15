@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-jdk
+FROM eclipse-temurin:21-jdk
 
 ARG java_tool_opts
 ENV JAVA_TOOL_OPTIONS=$java_tool_opts
