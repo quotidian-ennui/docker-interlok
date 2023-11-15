@@ -29,22 +29,13 @@ jobs:
       continue-on-error: true
       uses: dependabot/fetch-metadata@v1
     - name: Repository Dispatch Event
-      uses: actions/github-script@v6
-      env:
-        evt_payload: |
-          {
-            "branch" : "${{ github.head_ref }}",
-            "sha": "${{ github.event.pull_request.head.sha }}",
-            "pull_request": "${{ steps.findpr.outputs.pr }}"
-          }
-        evt_type: "dependabot-build"
+      uses: quotidian-ennui/actions-olio/repo-dispatch@main
       with:
-        script: |
-          const { evt_payload , evt_type } = process.env
-          console.log(evt_payload)
-          github.rest.repos.createDispatchEvent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              event_type: evt_type,
-              client_payload: JSON.parse(evt_payload)
-          })
+        event_type: "dependabot-build"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        sha: ${{ github.event.pull_request.head.sha }}
+        ref: ${{ github.head_ref }}
+        event_detail: |
+         {
+            "dependabot_update_type": "${{ steps.depbot-metadata.outputs.update-type || 'unknown' }}"
+         }
