@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjdk-alpine:11 as build
+FROM bellsoft/liberica-openjdk-alpine:21 as build
 
 COPY builder /root/builder
 
