@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjdk-alpine:11
+FROM bellsoft/liberica-openjdk-alpine:21
 
 # LABEL maintainer="Adaptris"
 
